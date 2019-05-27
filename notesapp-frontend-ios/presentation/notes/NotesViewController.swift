@@ -33,14 +33,6 @@ class NotesViewController: UIViewController {
         super.viewDidLoad()
         bind(to: viewModel)
         configureView()
-
-        let ss = Microservice.execute(
-            NoteRequest.Post(requestBody: NoteFactory.dataTransferObject(with: Note(id: "yo", title: "yo", body: "yo")))
-        ).asObservable()
-
-        ss.subscribe(onNext: { (note) in
-            print("Hellooooo  \(note)")
-        }).disposed(by: disposeBag)
     }
 }
 

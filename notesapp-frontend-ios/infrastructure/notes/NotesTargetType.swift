@@ -8,10 +8,10 @@
 
 import Foundation
 
-protocol NotesTargeType: MicroserviceTargetType {}
+protocol NotesTargetType: MicroserviceTargetType {}
 
-extension NotesTargeType {
-    var subDomain: String {
+extension NotesTargetType {
+    var domainName: String {
         return "notes"
     }
 }

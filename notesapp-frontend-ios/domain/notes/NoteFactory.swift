@@ -13,7 +13,7 @@ struct NoteFactory {
         return NoteUio(id: note.id, title: note.title, body: note.body)
     }
 
-    static func dataTransferObject(with note: Note) -> NoteDto {
+    static func dataTransferObject(from note: Note) -> NoteDto {
         return NoteDto(id: note.id, title: note.title, body: note.body)
     }
 }

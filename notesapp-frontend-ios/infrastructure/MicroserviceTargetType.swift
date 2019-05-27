@@ -10,15 +10,16 @@ import Foundation
 import Moya
 
 protocol MicroserviceTargetType: TargetType {
-    var subDomain: String { get }
     associatedtype ResponseType: Decodable
+
+    var domainName: String { get }
 }
 
 extension MicroserviceTargetType {
     private var baseUrlString: String {
-        switch Microservice.environment {
+        switch MicroserviceClient.environment {
         case .staging,
-             .production: return "http://\(subDomain).bajo-k8s.online:30001"
+             .production: return "http://\(domainName).bajo-k8s.online:30001"
         }
     }
 

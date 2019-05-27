@@ -9,7 +9,7 @@
 import Moya
 import RxSwift
 
-struct Microservice {
+struct MicroserviceClient {
     static let environment: Environment = .staging
     private static let provider = MoyaProvider<MultiTarget>(plugins: [NetworkLoggerPlugin(verbose: true)])
 

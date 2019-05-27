@@ -21,15 +21,15 @@
 		C73F3922229C0D5700255EE4 /* ViewModelBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73F3921229C0D5700255EE4 /* ViewModelBindable.swift */; };
 		C73F3926229C0D8E00255EE4 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73F3925229C0D8E00255EE4 /* NotesViewController.swift */; };
 		C73F3928229C0D8E00255EE4 /* NotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73F3923229C0D8D00255EE4 /* NotesViewModel.swift */; };
-		C73F392A229C0F6E00255EE4 /* Microservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73F3929229C0F6E00255EE4 /* Microservice.swift */; };
+		C73F392A229C0F6E00255EE4 /* MicroserviceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73F3929229C0F6E00255EE4 /* MicroserviceClient.swift */; };
 		C73F392B229C0FFB00255EE4 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73F391F229C0CEF00255EE4 /* Environment.swift */; };
 		C73F392C229C108B00255EE4 /* MicroserviceTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73F391E229C0CEF00255EE4 /* MicroserviceTargetType.swift */; };
-		C73F392E229C15F000255EE4 /* NoteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73F392D229C15F000255EE4 /* NoteRequest.swift */; };
-		C73F3930229C18B100255EE4 /* NotesTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73F392F229C18B100255EE4 /* NotesTargetType.swift */; };
+		C73F392E229C15F000255EE4 /* NotesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73F392D229C15F000255EE4 /* NotesRequest.swift */; };
 		C758D6A4229BCA910080BF29 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C758D6A3229BCA910080BF29 /* NoteTableViewCell.swift */; };
 		C758D6A6229BCE860080BF29 /* NoteUio.swift in Sources */ = {isa = PBXBuildFile; fileRef = C758D6A5229BCE860080BF29 /* NoteUio.swift */; };
 		C758D6A8229BD01A0080BF29 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = C758D6A7229BD01A0080BF29 /* Note.swift */; };
 		C758D6AA229BD6880080BF29 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C758D6A9229BD6880080BF29 /* UIView+.swift */; };
+		C7DB9313229C6956002387F0 /* NotesTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DB9312229C6956002387F0 /* NotesTargetType.swift */; };
 		F7BAF68D9BBA77D2026F7240 /* Pods_notesapp_frontend_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43BF120AC2D53BA0FB240F43 /* Pods_notesapp_frontend_iosTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,15 +67,15 @@
 		C73F3921229C0D5700255EE4 /* ViewModelBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelBindable.swift; sourceTree = "<group>"; };
 		C73F3923229C0D8D00255EE4 /* NotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewModel.swift; sourceTree = "<group>"; };
 		C73F3925229C0D8E00255EE4 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
-		C73F3929229C0F6E00255EE4 /* Microservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Microservice.swift; sourceTree = "<group>"; };
-		C73F392D229C15F000255EE4 /* NoteRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteRequest.swift; sourceTree = "<group>"; };
-		C73F392F229C18B100255EE4 /* NotesTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTargetType.swift; sourceTree = "<group>"; };
+		C73F3929229C0F6E00255EE4 /* MicroserviceClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicroserviceClient.swift; sourceTree = "<group>"; };
+		C73F392D229C15F000255EE4 /* NotesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesRequest.swift; sourceTree = "<group>"; };
 		C749F3EB229B13EF00593BF1 /* notesapp-frontend-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "notesapp-frontend-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C749F3EF229B13EF00593BF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C758D6A3229BCA910080BF29 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		C758D6A5229BCE860080BF29 /* NoteUio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteUio.swift; sourceTree = "<group>"; };
 		C758D6A7229BD01A0080BF29 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		C758D6A9229BD6880080BF29 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		C7DB9312229C6956002387F0 /* NotesTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTargetType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,9 +168,8 @@
 			children = (
 				C73F391F229C0CEF00255EE4 /* Environment.swift */,
 				C73F391E229C0CEF00255EE4 /* MicroserviceTargetType.swift */,
-				C73F3929229C0F6E00255EE4 /* Microservice.swift */,
-				C73F392F229C18B100255EE4 /* NotesTargetType.swift */,
-				C73F392D229C15F000255EE4 /* NoteRequest.swift */,
+				C73F3929229C0F6E00255EE4 /* MicroserviceClient.swift */,
+				C7DB9311229C693D002387F0 /* notes */,
 			);
 			path = infrastructure;
 			sourceTree = "<group>";
@@ -213,6 +212,15 @@
 				C749F3EF229B13EF00593BF1 /* Info.plist */,
 			);
 			path = "notesapp-frontend-iosTests";
+			sourceTree = "<group>";
+		};
+		C7DB9311229C693D002387F0 /* notes */ = {
+			isa = PBXGroup;
+			children = (
+				C73F392D229C15F000255EE4 /* NotesRequest.swift */,
+				C7DB9312229C6956002387F0 /* NotesTargetType.swift */,
+			);
+			path = notes;
 			sourceTree = "<group>";
 		};
 		CDAB49CDAA4241F43E731167 /* Frameworks */ = {
@@ -427,7 +435,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C73F392E229C15F000255EE4 /* NoteRequest.swift in Sources */,
+				C73F392E229C15F000255EE4 /* NotesRequest.swift in Sources */,
 				C73F392B229C0FFB00255EE4 /* Environment.swift in Sources */,
 				C758D6A4229BCA910080BF29 /* NoteTableViewCell.swift in Sources */,
 				C7111E90229B120700EA27C2 /* AppDelegate.swift in Sources */,
@@ -437,9 +445,9 @@
 				C7039EDF229B32E400E66140 /* CellConfig.swift in Sources */,
 				C7039ED2229B177D00E66140 /* NoteType.swift in Sources */,
 				C7039ED8229B2EA500E66140 /* ReactiveTransforming.swift in Sources */,
-				C73F3930229C18B100255EE4 /* NotesTargetType.swift in Sources */,
+				C7DB9313229C6956002387F0 /* NotesTargetType.swift in Sources */,
 				C758D6A6229BCE860080BF29 /* NoteUio.swift in Sources */,
-				C73F392A229C0F6E00255EE4 /* Microservice.swift in Sources */,
+				C73F392A229C0F6E00255EE4 /* MicroserviceClient.swift in Sources */,
 				C73F3922229C0D5700255EE4 /* ViewModelBindable.swift in Sources */,
 				C73F391C229C0CB600255EE4 /* NoteDto.swift in Sources */,
 				C73F391D229C0CB600255EE4 /* NoteFactory.swift in Sources */,

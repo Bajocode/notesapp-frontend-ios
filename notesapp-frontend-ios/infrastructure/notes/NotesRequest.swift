@@ -8,12 +8,12 @@
 
 import Moya
 
-enum NoteRequest {
-    struct Get: NotesTargeType {
+enum NotesRequest {
+    struct Get: NotesTargetType {
         typealias ResponseType = [Note]
 
         var path: String {
-            return "/notes"
+            return "/\(domainName)"
         }
 
         var method: Method {
@@ -25,7 +25,7 @@ enum NoteRequest {
         }
     }
 
-    struct Post: NotesTargeType {
+    struct Post: NotesTargetType {
         typealias ResponseType = Note
         private let requestBody: NoteDto
 
@@ -33,8 +33,16 @@ enum NoteRequest {
             self.requestBody = requestBody
         }
 
-        var path: String { return "/notes" }
-        var method: Method { return .post }
-        var task: Task { return .requestJSONEncodable(requestBody) }
+        var path: String {
+            return "/\(domainName)"
+        }
+
+        var method: Method {
+            return .post
+        }
+
+        var task: Task {
+            return .requestJSONEncodable(requestBody)
+        }
     }
 }
