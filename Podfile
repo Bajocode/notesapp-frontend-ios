@@ -6,14 +6,15 @@ target 'notesapp-frontend-ios' do
   use_frameworks!
 
   pod 'SwiftLint'
-  pod 'RxSwift', '~> 5'
-  pod 'RxCocoa', '~> 5'
+  pod 'RxSwift', '~> 4'
+  pod 'RxCocoa', '~> 4'
+  pod 'Moya/RxSwift', '~> 13.0'
 
   target 'notesapp-frontend-iosTests' do
     inherit! :search_paths
 
-    pod 'RxBlocking', '~>5'
-    pod 'RxTest', '~>5'
+    pod 'RxBlocking', '~> 4'
+    pod 'RxTest', '~> 4'
 
   end
 

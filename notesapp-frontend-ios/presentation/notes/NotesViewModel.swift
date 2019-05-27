@@ -7,19 +7,24 @@
 //
 
 import RxSwift
+import RxCocoa
 
 struct NotesViewModel {}
 
 extension NotesViewModel: ReactiveTransforming {
     struct Input {
-
+        let cellSelection: Driver<IndexPath>
     }
     struct Output {
-
+        let generateColor: Driver<UIColor>
     }
 
     func transform(input: Input) -> Output {
-        return Output()
+        let generateColor = input
+            .cellSelection
+            .map { _ in UIColor.blue }
+
+        return Output(generateColor: generateColor)
     }
 }
 
@@ -29,4 +34,8 @@ extension NotesViewModel: TableViewDecoratable {
 
         return [config]
     }
+
+//    var isStylePlain: Bool {
+//        return false
+//    }
 }

@@ -31,6 +31,24 @@ class NotesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        bind(to: viewModel)
         configureView()
+    }
+}
+
+extension NotesViewController: ViewModelBindable {
+    func bind(to viewModel: NotesViewModel) {
+        let output = viewModel.transform(input: input)
+
+        output
+            .generateColor
+            .drive(tableView.rx.backgroundColor)
+            .disposed(by: disposeBag)
+    }
+
+    private var input: NotesViewModel.Input {
+        let cellSelection = tableView.rx.itemSelected.asDriver()
+
+        return NotesViewModel.Input(cellSelection: cellSelection)
     }
 }
