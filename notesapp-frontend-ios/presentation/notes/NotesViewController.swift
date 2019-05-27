@@ -11,10 +11,10 @@ import RxCocoa
 
 class NotesViewController: UIViewController {
     private let disposeBag = DisposeBag()
-    private let viewModel: NoteViewModel
-    private lazy var tableView = UITableView()
+    private let viewModel: NotesViewModel
+    private lazy var tableView = UITableView(decorator: viewModel, frame: view.bounds)
 
-    init(viewModel: NoteViewModel) {
+    init(viewModel: NotesViewModel) {
         self.viewModel = viewModel
 
         super.init(nibName: nil, bundle: nil)
@@ -24,11 +24,13 @@ class NotesViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    private func configureView() {
+        view.addSubview(tableView)
+        tableView.constrainAllEdgesToSuperView()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
+        configureView()
     }
-
 }

@@ -1,14 +1,15 @@
 //
-//  Note.swift
+//  PresentableNote.swift
 //  notesapp-frontend-ios
 //
-//  Created by Fabijan Bajo on 26/05/2019.
+//  Created by Fabijan Bajo on 27/05/2019.
 //  Copyright © 2019 Fabijan Bajo. All rights reserved.
 //
 
 import Foundation
 
-struct Note {
+struct PresentableNote: NoteType {
     let id: String
-    let name: String
+    let title: String
+    
 }

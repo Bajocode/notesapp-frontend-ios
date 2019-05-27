@@ -8,14 +8,14 @@
 
 import Foundation
 
-struct CellRegisterInfo {
+struct CellConfig {
+    let cellId: String
     let cellClass: AnyClass
-    let reuseId: String
-    let isXib: Bool
+    let isNib: Bool
 
-    init(cellClass: AnyClass, isXib: Bool) {
+    init(cellClass: AnyClass, isNib: Bool) {
+        self.cellId = String(describing: cellClass)
         self.cellClass = cellClass
-        self.isXib = isXib
-        self.reuseId = String(describing: cellClass)
+        self.isNib = isNib
     }
 }

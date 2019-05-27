@@ -9,16 +9,24 @@
 /* Begin PBXBuildFile section */
 		114711D8169BB7AC3922FE70 /* Pods_notesapp_frontend_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EFB9BC89DEFAA354893DD53 /* Pods_notesapp_frontend_iosTests.framework */; };
 		80364DF12CF81029B09BE6FA /* Pods_notesapp_frontend_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C7349828E90A20E893B7081 /* Pods_notesapp_frontend_ios.framework */; };
-		C7039ED2229B177D00E66140 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7039ED1229B177D00E66140 /* Note.swift */; };
+		C7039ED2229B177D00E66140 /* NoteType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7039ED1229B177D00E66140 /* NoteType.swift */; };
 		C7039ED6229B2D9E00E66140 /* NotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7039ED5229B2D9E00E66140 /* NotesViewModel.swift */; };
 		C7039ED8229B2EA500E66140 /* ReactiveTransforming.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7039ED7229B2EA500E66140 /* ReactiveTransforming.swift */; };
 		C7039EDA229B325400E66140 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7039ED9229B325400E66140 /* NotesViewController.swift */; };
-		C7039EDD229B32D800E66140 /* TableViewConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7039EDC229B32D800E66140 /* TableViewConfigurable.swift */; };
-		C7039EDF229B32E400E66140 /* CellRegisterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7039EDE229B32E400E66140 /* CellRegisterInfo.swift */; };
+		C7039EDD229B32D800E66140 /* TableViewDecoratable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7039EDC229B32D800E66140 /* TableViewDecoratable.swift */; };
+		C7039EDF229B32E400E66140 /* CellConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7039EDE229B32E400E66140 /* CellConfig.swift */; };
 		C7039EE1229B34EF00E66140 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7039EE0229B34EF00E66140 /* UITableView+.swift */; };
 		C7111E90229B120700EA27C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7111E8F229B120700EA27C2 /* AppDelegate.swift */; };
 		C7111E97229B120800EA27C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7111E96229B120800EA27C2 /* Assets.xcassets */; };
 		C7111E9A229B120800EA27C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7111E98229B120800EA27C2 /* LaunchScreen.storyboard */; };
+		C735BA60229BAD9500A19CA9 /* NoteFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C735BA5F229BAD9500A19CA9 /* NoteFactory.swift */; };
+		C735BA67229BB79700A19CA9 /* NotesMicroserviceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C735BA66229BB79700A19CA9 /* NotesMicroserviceAdapter.swift */; };
+		C735BA6A229BB8A900A19CA9 /* NoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C735BA69229BB8A900A19CA9 /* NoteViewModel.swift */; };
+		C735BA6C229BB90D00A19CA9 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C735BA6B229BB90D00A19CA9 /* NoteViewController.swift */; };
+		C758D6A4229BCA910080BF29 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C758D6A3229BCA910080BF29 /* NoteTableViewCell.swift */; };
+		C758D6A6229BCE860080BF29 /* PresentableNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = C758D6A5229BCE860080BF29 /* PresentableNote.swift */; };
+		C758D6A8229BD01A0080BF29 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = C758D6A7229BD01A0080BF29 /* Note.swift */; };
+		C758D6AA229BD6880080BF29 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C758D6A9229BD6880080BF29 /* UIView+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,20 +45,28 @@
 		5C7349828E90A20E893B7081 /* Pods_notesapp_frontend_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_notesapp_frontend_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CD2D860010C96767253F68D /* Pods-notesapp-frontend-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-notesapp-frontend-ios.release.xcconfig"; path = "Target Support Files/Pods-notesapp-frontend-ios/Pods-notesapp-frontend-ios.release.xcconfig"; sourceTree = "<group>"; };
 		7EFB9BC89DEFAA354893DD53 /* Pods_notesapp_frontend_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_notesapp_frontend_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7039ED1229B177D00E66140 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		C7039ED1229B177D00E66140 /* NoteType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteType.swift; sourceTree = "<group>"; };
 		C7039ED5229B2D9E00E66140 /* NotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewModel.swift; sourceTree = "<group>"; };
 		C7039ED7229B2EA500E66140 /* ReactiveTransforming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveTransforming.swift; sourceTree = "<group>"; };
 		C7039ED9229B325400E66140 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
-		C7039EDC229B32D800E66140 /* TableViewConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewConfigurable.swift; sourceTree = "<group>"; };
-		C7039EDE229B32E400E66140 /* CellRegisterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellRegisterInfo.swift; sourceTree = "<group>"; };
+		C7039EDC229B32D800E66140 /* TableViewDecoratable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDecoratable.swift; sourceTree = "<group>"; };
+		C7039EDE229B32E400E66140 /* CellConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellConfig.swift; sourceTree = "<group>"; };
 		C7039EE0229B34EF00E66140 /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 		C7111E8C229B120700EA27C2 /* notesapp-frontend-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "notesapp-frontend-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7111E8F229B120700EA27C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7111E96229B120800EA27C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7111E99229B120800EA27C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7111E9B229B120800EA27C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C735BA5F229BAD9500A19CA9 /* NoteFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteFactory.swift; sourceTree = "<group>"; };
+		C735BA66229BB79700A19CA9 /* NotesMicroserviceAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesMicroserviceAdapter.swift; sourceTree = "<group>"; };
+		C735BA69229BB8A900A19CA9 /* NoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewModel.swift; sourceTree = "<group>"; };
+		C735BA6B229BB90D00A19CA9 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		C749F3EB229B13EF00593BF1 /* notesapp-frontend-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "notesapp-frontend-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C749F3EF229B13EF00593BF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C758D6A3229BCA910080BF29 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
+		C758D6A5229BCE860080BF29 /* PresentableNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentableNote.swift; sourceTree = "<group>"; };
+		C758D6A7229BD01A0080BF29 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		C758D6A9229BD6880080BF29 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		DBA5C4A0376ABB092CD3E604 /* Pods-notesapp-frontend-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-notesapp-frontend-ios.debug.xcconfig"; path = "Target Support Files/Pods-notesapp-frontend-ios/Pods-notesapp-frontend-ios.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,16 +110,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C7039EDB229B325D00E66140 /* notes */ = {
-			isa = PBXGroup;
-			children = (
-				C7039ED1229B177D00E66140 /* Note.swift */,
-				C7039ED5229B2D9E00E66140 /* NotesViewModel.swift */,
-				C7039ED9229B325400E66140 /* NotesViewController.swift */,
-			);
-			path = notes;
-			sourceTree = "<group>";
-		};
 		C7111E83229B120700EA27C2 = {
 			isa = PBXGroup;
 			children = (
@@ -127,17 +133,83 @@
 		C7111E8E229B120700EA27C2 /* notesapp-frontend-ios */ = {
 			isa = PBXGroup;
 			children = (
-				C7039EDB229B325D00E66140 /* notes */,
+				C735BA64229BADE900A19CA9 /* presentation */,
+				C735BA5B229BAD3D00A19CA9 /* domain */,
+				C735BA63229BADBC00A19CA9 /* infrastructure */,
 				C7111E8F229B120700EA27C2 /* AppDelegate.swift */,
-				C7039EDC229B32D800E66140 /* TableViewConfigurable.swift */,
-				C7039EDE229B32E400E66140 /* CellRegisterInfo.swift */,
 				C7111E96229B120800EA27C2 /* Assets.xcassets */,
 				C7111E98229B120800EA27C2 /* LaunchScreen.storyboard */,
 				C7111E9B229B120800EA27C2 /* Info.plist */,
-				C7039ED7229B2EA500E66140 /* ReactiveTransforming.swift */,
-				C7039EE0229B34EF00E66140 /* UITableView+.swift */,
 			);
 			path = "notesapp-frontend-ios";
+			sourceTree = "<group>";
+		};
+		C735BA5B229BAD3D00A19CA9 /* domain */ = {
+			isa = PBXGroup;
+			children = (
+				C735BA5E229BAD8100A19CA9 /* notes */,
+			);
+			path = domain;
+			sourceTree = "<group>";
+		};
+		C735BA5E229BAD8100A19CA9 /* notes */ = {
+			isa = PBXGroup;
+			children = (
+				C7039ED1229B177D00E66140 /* NoteType.swift */,
+				C758D6A7229BD01A0080BF29 /* Note.swift */,
+				C758D6A5229BCE860080BF29 /* PresentableNote.swift */,
+				C735BA5F229BAD9500A19CA9 /* NoteFactory.swift */,
+			);
+			path = notes;
+			sourceTree = "<group>";
+		};
+		C735BA63229BADBC00A19CA9 /* infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				C735BA66229BB79700A19CA9 /* NotesMicroserviceAdapter.swift */,
+			);
+			path = infrastructure;
+			sourceTree = "<group>";
+		};
+		C735BA64229BADE900A19CA9 /* presentation */ = {
+			isa = PBXGroup;
+			children = (
+				C735BA68229BB89700A19CA9 /* note */,
+				C735BA65229BAE5E00A19CA9 /* notes */,
+				C735BA6D229BB97F00A19CA9 /* common */,
+			);
+			path = presentation;
+			sourceTree = "<group>";
+		};
+		C735BA65229BAE5E00A19CA9 /* notes */ = {
+			isa = PBXGroup;
+			children = (
+				C7039ED5229B2D9E00E66140 /* NotesViewModel.swift */,
+				C7039ED9229B325400E66140 /* NotesViewController.swift */,
+				C758D6A3229BCA910080BF29 /* NoteTableViewCell.swift */,
+			);
+			path = notes;
+			sourceTree = "<group>";
+		};
+		C735BA68229BB89700A19CA9 /* note */ = {
+			isa = PBXGroup;
+			children = (
+				C735BA69229BB8A900A19CA9 /* NoteViewModel.swift */,
+				C735BA6B229BB90D00A19CA9 /* NoteViewController.swift */,
+			);
+			path = note;
+			sourceTree = "<group>";
+		};
+		C735BA6D229BB97F00A19CA9 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				C7039EDC229B32D800E66140 /* TableViewDecoratable.swift */,
+				C758D6A9229BD6880080BF29 /* UIView+.swift */,
+				C7039EE0229B34EF00E66140 /* UITableView+.swift */,
+				C7039EDE229B32E400E66140 /* CellConfig.swift */,
+				C7039ED7229B2EA500E66140 /* ReactiveTransforming.swift */,
+			);
+			path = common;
 			sourceTree = "<group>";
 		};
 		C749F3EC229B13EF00593BF1 /* notesapp-frontend-iosTests */ = {
@@ -351,13 +423,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C735BA60229BAD9500A19CA9 /* NoteFactory.swift in Sources */,
+				C758D6A4229BCA910080BF29 /* NoteTableViewCell.swift in Sources */,
 				C7111E90229B120700EA27C2 /* AppDelegate.swift in Sources */,
 				C7039EE1229B34EF00E66140 /* UITableView+.swift in Sources */,
-				C7039EDF229B32E400E66140 /* CellRegisterInfo.swift in Sources */,
+				C735BA6C229BB90D00A19CA9 /* NoteViewController.swift in Sources */,
+				C758D6A8229BD01A0080BF29 /* Note.swift in Sources */,
+				C7039EDF229B32E400E66140 /* CellConfig.swift in Sources */,
 				C7039EDA229B325400E66140 /* NotesViewController.swift in Sources */,
-				C7039ED2229B177D00E66140 /* Note.swift in Sources */,
+				C7039ED2229B177D00E66140 /* NoteType.swift in Sources */,
 				C7039ED8229B2EA500E66140 /* ReactiveTransforming.swift in Sources */,
-				C7039EDD229B32D800E66140 /* TableViewConfigurable.swift in Sources */,
+				C758D6A6229BCE860080BF29 /* PresentableNote.swift in Sources */,
+				C735BA6A229BB8A900A19CA9 /* NoteViewModel.swift in Sources */,
+				C758D6AA229BD6880080BF29 /* UIView+.swift in Sources */,
+				C735BA67229BB79700A19CA9 /* NotesMicroserviceAdapter.swift in Sources */,
+				C7039EDD229B32D800E66140 /* TableViewDecoratable.swift in Sources */,
 				C7039ED6229B2D9E00E66140 /* NotesViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
