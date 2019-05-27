@@ -9,8 +9,6 @@
 import Foundation
 
 enum Environment {
-    case local
-    case preview
     case staging
     case production
 }

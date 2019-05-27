@@ -9,11 +9,11 @@
 import Foundation
 
 struct NoteFactory {
-    static func generatePresentableNote(with note: Note) -> NoteUio {
-        return NoteUio(id: note.id, title: note.title)
+    static func userInterfaceObject(from note: Note) -> NoteUio {
+        return NoteUio(id: note.id, title: note.title, body: note.body)
     }
 
-    static func generateTransferrableNote(with note: Note) -> NoteDto {
-        return NoteDto(id: note.id, title: note.title)
+    static func dataTransferObject(with note: Note) -> NoteDto {
+        return NoteDto(id: note.id, title: note.title, body: note.body)
     }
 }

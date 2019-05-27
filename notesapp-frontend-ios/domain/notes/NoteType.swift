@@ -11,4 +11,5 @@ import Foundation
 protocol NoteType {
     var id: String { get }
     var title: String { get }
+    var body: String { get }
 }

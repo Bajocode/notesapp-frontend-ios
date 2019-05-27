@@ -11,4 +11,5 @@ import Foundation
 struct NoteUio: NoteType {
     let id: String
     let title: String
+    let body: String
 }
