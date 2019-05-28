@@ -17,8 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white
-        window?.rootViewController = NotesViewController(viewModel: NotesViewModel())
-        window?.makeKeyAndVisible()
+
+        let coordinator = Coordinator(window: window!)
+        let dependencyContainer = DependencyContainer(coordinator: coordinator)
+        let scene = NotesScene.notes(NotesViewModel(dependencies: dependencyContainer))
+        coordinator.transition(to: scene, transitionType: .entry)
 
         return true
     }

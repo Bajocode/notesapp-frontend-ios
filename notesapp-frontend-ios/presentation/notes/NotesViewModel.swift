@@ -9,7 +9,15 @@
 import RxSwift
 import RxCocoa
 
-struct NotesViewModel {}
+struct NotesViewModel {
+    typealias Dependencies = CoordinatorDepending
+
+    let dependencies: Dependencies
+
+    init(dependencies: Dependencies) {
+        self.dependencies = dependencies
+    }
+}
 
 extension NotesViewModel: ReactiveTransforming {
     struct Input {
@@ -27,7 +35,6 @@ extension NotesViewModel: ReactiveTransforming {
                     .execute(NotesRequest.Get())
                     .asDriver(onErrorJustReturn: [])
             }
-
         let presentableNotes = notes
             .map { $0.map { NoteFactory.userInterfaceObject(from: $0) } }
 

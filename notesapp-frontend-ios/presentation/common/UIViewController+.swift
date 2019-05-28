@@ -9,11 +9,15 @@
 import UIKit
 
 extension UIViewController {
-    func extractFromNavigationController() -> UIViewController {
+    func extractFromNav() -> UIViewController {
         if let nav = self as? UINavigationController {
             return nav.viewControllers.first!
         } else {
             return self
         }
+    }
+
+    func embedInNav() -> UIViewController {
+        return UINavigationController(rootViewController: self)
     }
 }

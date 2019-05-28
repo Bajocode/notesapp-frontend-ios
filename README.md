@@ -17,3 +17,5 @@ Observer and iterator pattern with functional programming
 
 ### Factory (creation)
 ### Builder (creation)
+### Dependency composition (creation)
+* protocol oriented dependency injection 
