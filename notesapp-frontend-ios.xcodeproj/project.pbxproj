@@ -29,7 +29,9 @@
 		C758D6A6229BCE860080BF29 /* NoteUio.swift in Sources */ = {isa = PBXBuildFile; fileRef = C758D6A5229BCE860080BF29 /* NoteUio.swift */; };
 		C758D6A8229BD01A0080BF29 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = C758D6A7229BD01A0080BF29 /* Note.swift */; };
 		C758D6AA229BD6880080BF29 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C758D6A9229BD6880080BF29 /* UIView+.swift */; };
+		C7DA5D10229D19A100FFB77D /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DA5D0F229D19A100FFB77D /* UIViewController+.swift */; };
 		C7DB9313229C6956002387F0 /* NotesTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DB9312229C6956002387F0 /* NotesTargetType.swift */; };
+		C7DB9317229C91A4002387F0 /* NotesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DB9316229C91A4002387F0 /* NotesCoordinator.swift */; };
 		F7BAF68D9BBA77D2026F7240 /* Pods_notesapp_frontend_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43BF120AC2D53BA0FB240F43 /* Pods_notesapp_frontend_iosTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,7 +77,9 @@
 		C758D6A5229BCE860080BF29 /* NoteUio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteUio.swift; sourceTree = "<group>"; };
 		C758D6A7229BD01A0080BF29 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		C758D6A9229BD6880080BF29 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		C7DA5D0F229D19A100FFB77D /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		C7DB9312229C6956002387F0 /* NotesTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTargetType.swift; sourceTree = "<group>"; };
+		C7DB9316229C91A4002387F0 /* NotesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +193,7 @@
 				C73F3925229C0D8E00255EE4 /* NotesViewController.swift */,
 				C73F3923229C0D8D00255EE4 /* NotesViewModel.swift */,
 				C758D6A3229BCA910080BF29 /* NoteTableViewCell.swift */,
+				C7DB9316229C91A4002387F0 /* NotesCoordinator.swift */,
 			);
 			path = notes;
 			sourceTree = "<group>";
@@ -197,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				C7039EDC229B32D800E66140 /* TableViewDecoratable.swift */,
+				C7DA5D0F229D19A100FFB77D /* UIViewController+.swift */,
 				C758D6A9229BD6880080BF29 /* UIView+.swift */,
 				C7039EE0229B34EF00E66140 /* UITableView+.swift */,
 				C7039EDE229B32E400E66140 /* CellConfig.swift */,
@@ -443,11 +449,13 @@
 				C7039EE1229B34EF00E66140 /* UITableView+.swift in Sources */,
 				C758D6A8229BD01A0080BF29 /* Note.swift in Sources */,
 				C7039EDF229B32E400E66140 /* CellConfig.swift in Sources */,
+				C7DA5D10229D19A100FFB77D /* UIViewController+.swift in Sources */,
 				C7039ED2229B177D00E66140 /* NoteType.swift in Sources */,
 				C7039ED8229B2EA500E66140 /* ReactiveTransforming.swift in Sources */,
 				C7DB9313229C6956002387F0 /* NotesTargetType.swift in Sources */,
 				C758D6A6229BCE860080BF29 /* NoteUio.swift in Sources */,
 				C73F392A229C0F6E00255EE4 /* MicroserviceClient.swift in Sources */,
+				C7DB9317229C91A4002387F0 /* NotesCoordinator.swift in Sources */,
 				C73F3922229C0D5700255EE4 /* ViewModelBindable.swift in Sources */,
 				C73F391C229C0CB600255EE4 /* NoteDto.swift in Sources */,
 				C73F391D229C0CB600255EE4 /* NoteFactory.swift in Sources */,

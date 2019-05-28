@@ -13,18 +13,25 @@ struct NotesViewModel {}
 
 extension NotesViewModel: ReactiveTransforming {
     struct Input {
+        let viewWillAppear: Driver<Void>
         let cellSelection: Driver<IndexPath>
     }
     struct Output {
-        let generateColor: Driver<UIColor>
+        let presentableNotes: Driver<[NoteUio]>
     }
 
     func transform(input: Input) -> Output {
-        let generateColor = input
-            .cellSelection
-            .map { _ in UIColor.blue }
+        let notes = input.viewWillAppear
+            .flatMapLatest {
+                return MicroserviceClient
+                    .execute(NotesRequest.Get())
+                    .asDriver(onErrorJustReturn: [])
+            }
 
-        return Output(generateColor: generateColor)
+        let presentableNotes = notes
+            .map { $0.map { NoteFactory.userInterfaceObject(from: $0) } }
+
+        return Output(presentableNotes: presentableNotes)
     }
 }
 
@@ -34,8 +41,4 @@ extension NotesViewModel: TableViewDecoratable {
 
         return [config]
     }
-
-//    var isStylePlain: Bool {
-//        return false
-//    }
 }

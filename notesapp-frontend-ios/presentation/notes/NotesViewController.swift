@@ -37,18 +37,29 @@ class NotesViewController: UIViewController {
 }
 
 extension NotesViewController: ViewModelBindable {
+    private var input: NotesViewModel.Input {
+        let viewWillAppear = rx
+            .sentMessage(#selector(viewWillAppear(_:)))
+            .map { _ in }
+            .asDriver(onErrorJustReturn: ())
+        let cellSelection = tableView
+            .rx
+            .itemSelected
+            .asDriver()
+
+        return NotesViewModel.Input(viewWillAppear: viewWillAppear,
+                                    cellSelection: cellSelection)
+    }
+
     func bind(to viewModel: NotesViewModel) {
         let output = viewModel.transform(input: input)
 
-        output
-            .generateColor
-            .drive(tableView.rx.backgroundColor)
-            .disposed(by: disposeBag)
-    }
-
-    private var input: NotesViewModel.Input {
-        let cellSelection = tableView.rx.itemSelected.asDriver()
-
-        return NotesViewModel.Input(cellSelection: cellSelection)
+        output.presentableNotes
+            .drive(tableView.rx.items(
+                cellIdentifier: NoteTableViewCell.id,
+                cellType: NoteTableViewCell.self)) { (_, noteUio, cell) in
+                    cell.textLabel?.text = noteUio.title
+                }
+        .disposed(by: disposeBag)
     }
 }

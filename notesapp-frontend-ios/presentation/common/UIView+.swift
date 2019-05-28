@@ -9,6 +9,10 @@
 import UIKit
 
 extension UIView {
+    static var id: String {
+        return String(describing: self)
+    }
+
     func constrainAllEdgesToSuperView(insets: UIEdgeInsets = .zero) {
         guard let superView = self.superview else {
             return
