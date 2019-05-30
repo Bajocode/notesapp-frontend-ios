@@ -1,5 +1,7 @@
 disabled_rules:
 - identifier_name
 - nesting
+opt_in_rules:
+- multiline_parameters
 excluded:
 - Pods

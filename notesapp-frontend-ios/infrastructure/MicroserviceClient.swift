@@ -11,12 +11,12 @@ import RxSwift
 
 struct MicroserviceClient {
     static let environment: Environment = .staging
-    private static let provider = MoyaProvider<MultiTarget>(plugins: [NetworkLoggerPlugin(verbose: true)])
+    private let provider = MoyaProvider<MultiTarget>(plugins: [NetworkLoggerPlugin(verbose: true)])
 
-    static func execute<T: MicroserviceTargetType>(_ endpoint: T) -> Single<T.ResponseType> {
+    func execute<T: MicroserviceTargetType>(_ request: T) -> Single<T.ResponseType> {
         return provider
             .rx
-            .request(MultiTarget(endpoint))
+            .request(MultiTarget(request))
             .map(T.ResponseType.self)
     }
 }

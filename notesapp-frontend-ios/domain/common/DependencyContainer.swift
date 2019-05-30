@@ -8,14 +8,20 @@
 
 import Foundation
 
-protocol CoordinatorDepending {
-    var coordinator: Coordinator { get }
+protocol MicroServiceClientInjectable {
+    var microserviceClient: MicroserviceClient { get }
 }
 
-struct DependencyContainer: CoordinatorDepending {
-    let coordinator: Coordinator
+protocol SceneCoordinatorInjectable {
+    var coordinator: SceneCoordinator { get }
+}
 
-    init(coordinator: Coordinator) {
+struct DependencyContainer: MicroServiceClientInjectable, SceneCoordinatorInjectable {
+    let microserviceClient: MicroserviceClient
+    let coordinator: SceneCoordinator
+
+    init(microserviceClient: MicroserviceClient, coordinator: SceneCoordinator) {
+        self.microserviceClient = microserviceClient
         self.coordinator = coordinator
     }
 }

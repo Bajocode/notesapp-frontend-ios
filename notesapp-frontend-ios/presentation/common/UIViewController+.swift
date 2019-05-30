@@ -17,7 +17,11 @@ extension UIViewController {
         }
     }
 
-    func embedInNav() -> UIViewController {
-        return UINavigationController(rootViewController: self)
+    func embedInNav() -> UINavigationController {
+        if let nav = self as? UINavigationController {
+            return nav
+        } else {
+            return UINavigationController(rootViewController: self)
+        }
     }
 }

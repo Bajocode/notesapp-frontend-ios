@@ -16,7 +16,7 @@ struct NoteDto: NoteType {
 
 extension NoteDto: Encodable {
     private enum CodingKeys: String, CodingKey {
-        case id, title, body
+        case title, body
     }
 
     func encode(to encoder: Encoder) throws {

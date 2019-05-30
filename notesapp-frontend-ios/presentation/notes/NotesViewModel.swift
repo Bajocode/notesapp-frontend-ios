@@ -9,13 +9,15 @@
 import RxSwift
 import RxCocoa
 
-struct NotesViewModel {
-    typealias Dependencies = CoordinatorDepending
+struct NotesViewModel: ViewModelType {
+    typealias Dependencies = MicroServiceClientInjectable & SceneCoordinatorInjectable
 
-    let dependencies: Dependencies
+    private let dependencies: Dependencies
+    private let injector: Injector
 
-    init(dependencies: Dependencies) {
+    init(dependencies: Dependencies, injector: Injector) {
         self.dependencies = dependencies
+        self.injector = injector
     }
 }
 
@@ -26,25 +28,40 @@ extension NotesViewModel: ReactiveTransforming {
     }
     struct Output {
         let presentableNotes: Driver<[NoteUio]>
+        let transitionToUpdateNote: Driver<Note>
     }
 
     func transform(input: Input) -> Output {
         let notes = input.viewWillAppear
             .flatMapLatest {
-                return MicroserviceClient
+                return self.dependencies
+                    .microserviceClient
                     .execute(NotesRequest.Get())
                     .asDriver(onErrorJustReturn: [])
             }
         let presentableNotes = notes
             .map { $0.map { NoteFactory.userInterfaceObject(from: $0) } }
+        let transitionToUpdateNote = input
+            .cellSelection
+            .withLatestFrom(notes) { (indexPath, notes) -> Note in
+                return notes[indexPath.row] }
+            .do(onNext: {
+                self.dependencies
+                    .coordinator
+                    .transition(to: .noteUpdate(note: $0),
+                                transitionType: .push,
+                                injector: self.injector)
+            })
 
-        return Output(presentableNotes: presentableNotes)
+        return Output(presentableNotes: presentableNotes,
+                      transitionToUpdateNote: transitionToUpdateNote)
     }
 }
 
 extension NotesViewModel: TableViewDecoratable {
     var cellConfigs: [CellConfig] {
-        let config = CellConfig(cellClass: NoteTableViewCell.self, isNib: false)
+        let config = CellConfig(cellClass: NoteTableViewCell.self,
+                                isNib: false)
 
         return [config]
     }

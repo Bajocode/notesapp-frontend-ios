@@ -18,10 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .white
 
-        let coordinator = Coordinator(window: window!)
-        let dependencyContainer = DependencyContainer(coordinator: coordinator)
-        let scene = NotesScene.notes(NotesViewModel(dependencies: dependencyContainer))
-        coordinator.transition(to: scene, transitionType: .entry)
+        let microserviceClient = MicroserviceClient()
+        let coordinator = SceneCoordinator(window: window!)
+        let dependencyContainer = DependencyContainer(microserviceClient: microserviceClient,
+                                                      coordinator: coordinator)
+        let injector = Injector(dependencyContainer: dependencyContainer)
+        coordinator.transition(to: .notes,
+                               transitionType: .entry,
+                               injector: injector)
 
         return true
     }

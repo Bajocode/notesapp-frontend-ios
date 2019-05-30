@@ -38,12 +38,10 @@ class NotesViewController: UIViewController {
 
 extension NotesViewController: ViewModelBindable {
     private var input: NotesViewModel.Input {
-        let viewWillAppear = rx
-            .sentMessage(#selector(viewWillAppear(_:)))
+        let viewWillAppear = rx.sentMessage(#selector(viewWillAppear(_:)))
             .map { _ in }
             .asDriver(onErrorJustReturn: ())
-        let cellSelection = tableView
-            .rx
+        let cellSelection = tableView.rx
             .itemSelected
             .asDriver()
 
@@ -60,6 +58,10 @@ extension NotesViewController: ViewModelBindable {
                 cellType: NoteTableViewCell.self)) { (_, noteUio, cell) in
                     cell.textLabel?.text = noteUio.title
                 }
-        .disposed(by: disposeBag)
+            .disposed(by: disposeBag)
+
+        output.transitionToUpdateNote
+            .drive()
+            .disposed(by: disposeBag)
     }
 }

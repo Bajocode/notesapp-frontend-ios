@@ -9,6 +9,10 @@
 import Foundation
 
 struct NoteFactory {
+    static func appObject(from title: String, body: String) -> Note {
+        return Note(title: title, body: body)
+    }
+
     static func userInterfaceObject(from note: Note) -> NoteUio {
         return NoteUio(id: note.id, title: note.title, body: note.body)
     }
