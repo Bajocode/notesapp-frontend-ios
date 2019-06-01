@@ -19,9 +19,10 @@ final class Injector {
         switch scene {
         case .notes:
             return notesScene()
-        case .noteUpdate(let note):
-            return noteUpdateScene(updatingNote: note)
-        default: return UIViewController()
+        case .noteUpdate(let updatingNote):
+            return noteUpdateScene(updatingNote: updatingNote)
+        case .noteCreate:
+            return noteCreateScene()
         }
     }
 }

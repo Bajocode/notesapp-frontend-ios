@@ -9,17 +9,16 @@
 import Foundation
 
 struct Note: NoteType {
-    var id: String
+    let id: String
     let title: String
     let body: String
 
-    init(title: String, body: String) {
-        id = ""
+    init(id: String, title: String, body: String) {
+        self.id = id
         self.title = title
         self.body = body
     }
 }
-
 
 extension Note: Decodable {
     private enum CodingKeys: String, CodingKey {

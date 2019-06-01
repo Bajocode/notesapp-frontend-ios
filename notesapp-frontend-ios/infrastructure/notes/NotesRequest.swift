@@ -27,10 +27,10 @@ enum NotesRequest {
 
     struct Post: NotesTargetType {
         typealias ResponseType = Note
-        private let requestBody: NoteDto
+        private let noteDto: NoteDto
 
-        init(requestBody: NoteDto) {
-            self.requestBody = requestBody
+        init(noteDto: NoteDto) {
+            self.noteDto = noteDto
         }
 
         var path: String {
@@ -42,7 +42,49 @@ enum NotesRequest {
         }
 
         var task: Task {
-            return .requestJSONEncodable(requestBody)
+            return .requestJSONEncodable(noteDto)
+        }
+    }
+
+    struct Put: NotesTargetType {
+        typealias ResponseType = Note
+        private let noteDto: NoteDto
+
+        init(noteDto: NoteDto) {
+            self.noteDto = noteDto
+        }
+
+        var path: String {
+            return "/\(domainName)/\(noteDto.id)"
+        }
+
+        var method: Method {
+            return .put
+        }
+
+        var task: Task {
+            return .requestJSONEncodable(noteDto)
+        }
+    }
+
+    struct Delete: NotesTargetType {
+        typealias ResponseType = Note
+        private let id: String
+
+        init(id: String) {
+            self.id = id
+        }
+
+        var path: String {
+            return "/\(domainName)/\(id)"
+        }
+
+        var method: Method {
+            return .delete
+        }
+
+        var task: Task {
+            return .requestPlain
         }
     }
 }

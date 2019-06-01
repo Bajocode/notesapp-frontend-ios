@@ -8,6 +8,6 @@
 
 import UIKit
 
-protocol ViewModelType {
+protocol ViewModelType: ReactiveTransforming {
     associatedtype Dependencies
 }

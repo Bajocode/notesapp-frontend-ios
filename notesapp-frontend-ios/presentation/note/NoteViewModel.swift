@@ -1,8 +1,8 @@
 //
-//  NoteViewModel.swift
+//  NoteCreateViewModel.swift
 //  notesapp-frontend-ios
 //
-//  Created by Fabijan Bajo on 29/05/2019.
+//  Created by Fabijan Bajo on 30/05/2019.
 //  Copyright © 2019 Fabijan Bajo. All rights reserved.
 //
 
@@ -14,20 +14,24 @@ struct NoteViewModel: ViewModelType {
 
     private let dependencies: Dependencies
     private let injector: Injector
-    private let updatingNote: Note
+    private let presentationMode: PresentationMode
+    private let note: Note
 
     init(dependencies: Dependencies,
          injector: Injector,
-         updatingNote: Note) {
+         presentationMode: PresentationMode,
+         note: Note) {
         self.dependencies = dependencies
         self.injector = injector
-        self.updatingNote = updatingNote
+        self.presentationMode = presentationMode
+        self.note = note
     }
 }
 
-protocol NoteUpdateViewModel: ReactiveTransforming {
-    var updatingNote: Note { get }
-    
+extension NoteViewModel {
+    enum PresentationMode {
+        case create, update
+    }
 }
 
 extension NoteViewModel: ReactiveTransforming {
@@ -39,22 +43,53 @@ extension NoteViewModel: ReactiveTransforming {
     }
 
     struct Output {
-        let noteUio: Driver<NoteUio>
+        let initialNoteUio: Driver<NoteUio>
         let noteCreation: Driver<Void>
         let noteDeletion: Driver<Void>
     }
 
     func transform(input: Input) -> Output {
-        let updatingNoteDriver = Driver.just(updatingNote)
-        let creatingNoteDriver = Driver.combineLatest(
-            input.titleTextFieldText,
-            input.bodyTextFieldText)
-            .map { NoteFactory.appObject(from: $0.0, body: $0.1) }
-        let mergedNoteDriver = Driver.merge(updatingNoteDriver,
-                                            creatingNoteDriver)
+        let initialNoteUio = Driver.just(NoteFactory.userInterfaceObject(from: self.note))
 
-        return NoteViewModel.Output(noteUio: Driver.empty(),
-                                    noteCreation: Driver.empty(),
-                                    noteDeletion: Driver.empty())
+        return NoteViewModel.Output(initialNoteUio: initialNoteUio,
+                                    noteCreation: noteCreationOutput(from: input),
+                                    noteDeletion: noteDeletionOutput(from: input))
+    }
+
+    private func noteDeletionOutput(from input: Input) -> Driver<Void> {
+        return input.deleteButtonTap
+            .flatMapLatest {
+                return self.dependencies
+                    .microserviceClient
+                    .execute(NotesRequest.Delete(id: self.note.id))
+                    .map { _ in }
+                    .asDriver(onErrorJustReturn: ())
+        }
+    }
+
+    private func noteCreationOutput(from input: Input) -> Driver<Void> {
+        return input.doneButtonTap
+            .withLatestFrom(extractNoteDtoFromUi(with: input))
+            .flatMapLatest { return self.request(dto: $0) }
+    }
+
+    private func extractNoteDtoFromUi(with input: Input) -> Driver<NoteDto> {
+        return Driver.combineLatest(input.titleTextFieldText, input.bodyTextFieldText)
+            .map { NoteFactory.appObject(from: self.note.id, title: $0.0, body: $0.1) }
+            .map { NoteFactory.dataTransferObject(from: $0) }
+    }
+
+    private func request(dto: NoteDto) -> Driver<Void> {
+        if presentationMode == .create {
+            return self.dependencies.microserviceClient
+                .execute(NotesRequest.Post(noteDto: dto))
+                .map { _ in }
+                .asDriver(onErrorJustReturn: ())
+        } else {
+            return self.dependencies.microserviceClient
+                .execute(NotesRequest.Put(noteDto: dto))
+                .map { _ in }
+                .asDriver(onErrorJustReturn: ())
+        }
     }
 }

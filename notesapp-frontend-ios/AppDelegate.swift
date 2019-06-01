@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let dependencyContainer = DependencyContainer(microserviceClient: microserviceClient,
                                                       coordinator: coordinator)
         let injector = Injector(dependencyContainer: dependencyContainer)
+
         coordinator.transition(to: .notes,
                                transitionType: .entry,
                                injector: injector)

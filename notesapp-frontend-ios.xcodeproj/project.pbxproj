@@ -36,7 +36,7 @@
 		C7B65CD8229E4FBD0017A630 /* SceneType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B65CD7229E4FBD0017A630 /* SceneType.swift */; };
 		C7B65CDC229E565D0017A630 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B65CDA229E565D0017A630 /* NoteViewController.swift */; };
 		C7B65CDD229E565D0017A630 /* NoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7B65CDB229E565D0017A630 /* NoteViewController.xib */; };
-		C7B65CDF229E59140017A630 /* NoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B65CDE229E59140017A630 /* NoteViewModel.swift */; };
+		C7C1952522A08597009FF4E3 /* NoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C1952422A08597009FF4E3 /* NoteViewModel.swift */; };
 		C7DA5D10229D19A100FFB77D /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DA5D0F229D19A100FFB77D /* UIViewController+.swift */; };
 		C7DA5D14229D32B200FFB77D /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DA5D13229D32B200FFB77D /* SceneCoordinator.swift */; };
 		C7DB9313229C6956002387F0 /* NotesTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DB9312229C6956002387F0 /* NotesTargetType.swift */; };
@@ -93,7 +93,7 @@
 		C7B65CD7229E4FBD0017A630 /* SceneType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneType.swift; sourceTree = "<group>"; };
 		C7B65CDA229E565D0017A630 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		C7B65CDB229E565D0017A630 /* NoteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteViewController.xib; sourceTree = "<group>"; };
-		C7B65CDE229E59140017A630 /* NoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewModel.swift; sourceTree = "<group>"; };
+		C7C1952422A08597009FF4E3 /* NoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewModel.swift; sourceTree = "<group>"; };
 		C7DA5D0F229D19A100FFB77D /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		C7DA5D13229D32B200FFB77D /* SceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinator.swift; sourceTree = "<group>"; };
 		C7DB9312229C6956002387F0 /* NotesTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTargetType.swift; sourceTree = "<group>"; };
@@ -257,7 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				C7B65CDA229E565D0017A630 /* NoteViewController.swift */,
-				C7B65CDE229E59140017A630 /* NoteViewModel.swift */,
+				C7C1952422A08597009FF4E3 /* NoteViewModel.swift */,
 				C7B65CDB229E565D0017A630 /* NoteViewController.xib */,
 			);
 			path = note;
@@ -488,6 +488,7 @@
 				C73F392E229C15F000255EE4 /* NotesRequest.swift in Sources */,
 				C73F392B229C0FFB00255EE4 /* Environment.swift in Sources */,
 				C7B65CD8229E4FBD0017A630 /* SceneType.swift in Sources */,
+				C7C1952522A08597009FF4E3 /* NoteViewModel.swift in Sources */,
 				C758D6A4229BCA910080BF29 /* NoteTableViewCell.swift in Sources */,
 				C7111E90229B120700EA27C2 /* AppDelegate.swift in Sources */,
 				C73F392C229C108B00255EE4 /* MicroserviceTargetType.swift in Sources */,
@@ -506,7 +507,6 @@
 				C758D6A6229BCE860080BF29 /* NoteUio.swift in Sources */,
 				C73F392A229C0F6E00255EE4 /* MicroserviceClient.swift in Sources */,
 				C73F3922229C0D5700255EE4 /* ViewModelBindable.swift in Sources */,
-				C7B65CDF229E59140017A630 /* NoteViewModel.swift in Sources */,
 				C73F391C229C0CB600255EE4 /* NoteDto.swift in Sources */,
 				C7DA5D14229D32B200FFB77D /* SceneCoordinator.swift in Sources */,
 				C73F391D229C0CB600255EE4 /* NoteFactory.swift in Sources */,

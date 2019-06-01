@@ -24,37 +24,55 @@ struct NotesViewModel: ViewModelType {
 extension NotesViewModel: ReactiveTransforming {
     struct Input {
         let viewWillAppear: Driver<Void>
+        let createButtonTap: Driver<Void>
         let cellSelection: Driver<IndexPath>
     }
     struct Output {
-        let presentableNotes: Driver<[NoteUio]>
+        let notesUio: Driver<[NoteUio]>
+        let transitionToCreateNote: Driver<Void>
         let transitionToUpdateNote: Driver<Note>
     }
 
     func transform(input: Input) -> Output {
-        let notes = input.viewWillAppear
+        let notes = notesFetchingOutput(from: input)
+
+        return Output(notesUio: notesUioOutput(from: notes),
+                      transitionToCreateNote: transitionToCreateOutput(from: input),
+                      transitionToUpdateNote: transitionToUpdateOutput(from: input,
+                                                                       notes: notes))
+    }
+
+    private func notesUioOutput(from notes: Driver<[Note]>) -> Driver<[NoteUio]> {
+        return notes.map { $0.map { NoteFactory.userInterfaceObject(from: $0) } }
+    }
+
+    private func notesFetchingOutput(from input: Input) -> Driver<[Note]> {
+        return input.viewWillAppear
             .flatMapLatest {
-                return self.dependencies
-                    .microserviceClient
+                return self.dependencies.microserviceClient
                     .execute(NotesRequest.Get())
-                    .asDriver(onErrorJustReturn: [])
-            }
-        let presentableNotes = notes
-            .map { $0.map { NoteFactory.userInterfaceObject(from: $0) } }
-        let transitionToUpdateNote = input
-            .cellSelection
+                    .asDriver(onErrorJustReturn: [])}
+    }
+
+    private func transitionToCreateOutput(from input: Input) -> Driver<Void> {
+        return input.createButtonTap
+            .do(onNext: {
+                self.dependencies.coordinator
+                    .transition(to: .noteCreate,
+                                transitionType: .modal,
+                                injector: self.injector)})
+    }
+
+    private func transitionToUpdateOutput(from input: Input,
+                                          notes: Driver<[Note]>) -> Driver<Note> {
+        return input.cellSelection
             .withLatestFrom(notes) { (indexPath, notes) -> Note in
                 return notes[indexPath.row] }
             .do(onNext: {
-                self.dependencies
-                    .coordinator
+                self.dependencies.coordinator
                     .transition(to: .noteUpdate(note: $0),
                                 transitionType: .push,
-                                injector: self.injector)
-            })
-
-        return Output(presentableNotes: presentableNotes,
-                      transitionToUpdateNote: transitionToUpdateNote)
+                                injector: self.injector)})
     }
 }
 
